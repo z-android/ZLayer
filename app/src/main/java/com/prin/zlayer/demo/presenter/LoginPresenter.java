@@ -68,6 +68,7 @@ public class LoginPresenter extends ZLayerPresenter<IMainView>{
             @Override
             public void onFailure(Call<BaseResponse<RspWeather>> call, Throwable t) {
                 ZLogUtil.i(TAG+t.getMessage());
+
             }
         });
     }
