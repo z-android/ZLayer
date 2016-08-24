@@ -5,6 +5,7 @@ import com.prin.zlayer.demo.client.RegisterClient;
 import com.prin.zlayer.demo.model.ApiClient;
 import com.prin.zlayer.demo.model.BaseResponse;
 import com.prin.zlayer.demo.model.RspWeather;
+import com.prin.zlayer.demo.task.WeatherTask;
 import com.prin.zlayer.demo.viewer.IMainView;
 import com.prin.zlayer.lib.net.ZClient;
 import com.prin.zlayer.lib.net.ZNetCallBack;
@@ -58,7 +59,18 @@ public class LoginPresenter extends ZLayerPresenter<IMainView>{
     }
 
     public void getWeather() {
-        Call<BaseResponse<RspWeather>> call = ApiClient.instance().getWeather("101010100");
+        WeatherTask task=new WeatherTask("101010100", new ZNetCallBack<BaseResponse<RspWeather>>() {
+            @Override
+            public void onSuccess(BaseResponse<RspWeather> response) {
+
+            }
+
+            @Override
+            public void onFailure(int errCode, String errMsg) {
+
+            }
+        });
+        Call<BaseResponse<RspWeather>> call = ApiClient.instance().getWeather("");
         call.enqueue(new Callback<BaseResponse<RspWeather>>() {
             @Override
             public void onResponse(Call<BaseResponse<RspWeather>> call, Response<BaseResponse<RspWeather>> response) {
@@ -72,4 +84,7 @@ public class LoginPresenter extends ZLayerPresenter<IMainView>{
             }
         });
     }
+
+
+
 }
