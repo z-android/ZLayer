@@ -27,8 +27,11 @@ public class ZRetrofitManager {
         builder.writeTimeout(8, TimeUnit.SECONDS);
         builder.connectTimeout(8, TimeUnit.SECONDS);
         builder.retryOnConnectionFailure(false);    //超时重试
+        builder.addNetworkInterceptor(mNetConfig.getCacheWrapper().getInterceptor());
+        builder.cache(mNetConfig.getCacheWrapper().getCache());
         return builder.build();
     }
+
 
     /**
      * 获得retrofit

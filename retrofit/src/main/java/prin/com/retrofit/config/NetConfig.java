@@ -8,6 +8,15 @@ public class NetConfig {
     public String BASE_URL; //请求基地址
     public long TIME_OUT;   //设置超市时间
     public boolean isRetry; //设置是否超时重试
+    public ZCacheWrapper mCacheWrapper;    //设置缓存
+
+    public ZCacheWrapper getCacheWrapper() {
+        return mCacheWrapper;
+    }
+
+    public void setCacheWrapper(ZCacheWrapper cacheWrapper) {
+        mCacheWrapper = cacheWrapper;
+    }
 
     public String getBASE_URL() {
         return BASE_URL;
