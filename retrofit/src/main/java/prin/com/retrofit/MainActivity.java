@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import prin.com.retrofit.presenter.CasePresenter;
+import prin.com.retrofit.presenter.OneBoxPresenter;
 
 public class MainActivity extends Activity {
 
@@ -27,8 +27,10 @@ public class MainActivity extends Activity {
     }
 
     private void initData() {
-        CasePresenter presenter=new CasePresenter();
-        presenter.getBaiduApi();
+        OneBoxPresenter presenter = new OneBoxPresenter();
+        presenter.queryBoxMsg();
+
+        presenter.queryAb();
     }
 
 }
