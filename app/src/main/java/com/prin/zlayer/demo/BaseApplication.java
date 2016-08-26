@@ -19,6 +19,7 @@ public class BaseApplication extends Application {
         mApplication = this;
         mBaseContext = getBaseContext();
         ZLayer.init(mBaseContext);
+        ZLayer.setDebug(true);
     }
 
     public static BaseApplication getApplication() {

@@ -27,7 +27,8 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile(name: 'zlayer', ext: 'aar')
+//    compile(name: 'zlayer', ext: 'aar')
+    compile project(':zlayer')
     testCompile 'junit:junit:4.12'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:appcompat-v7:24.0.0'
