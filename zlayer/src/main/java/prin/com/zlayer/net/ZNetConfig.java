@@ -14,10 +14,15 @@ public class ZNetConfig {
     public static final class Builder {
 
         public String baseUrl; //请求基地址
-        public long timeOut = -1;   //设置超市时间
+        public long timeOut = -1;   //设置超时时间
         public boolean isRetry; //设置是否超时重试
         public boolean isCookieEnable;  //设置是否cookie可用
         public boolean isCache; //是否开启网络缓存
+        public boolean enableHttps; //是否支持https
+        public String cer_server;
+        public String cer_client;
+        public String bks_file;
+        public int sslType;
 
         public Builder() {
             baseUrl = "";
@@ -25,12 +30,27 @@ public class ZNetConfig {
             isRetry = false;
             isCookieEnable = false;
             isCache = false;
+            enableHttps = false;
+        }
+
+        public Builder setEnableHttps(boolean enable, String cer_server, String cer_client, String bks_file, int sslType) {
+            enableHttps = enable;
+            this.cer_server = cer_server;
+            this.cer_client = cer_client;
+            this.bks_file = bks_file;
+            this.sslType = sslType;
+            return this;
+        }
+
+        public boolean getEnableHttps() {
+            return enableHttps;
         }
 
         public Builder setBaseUrl(String baseUrl) {
             this.baseUrl = baseUrl;
             return this;
         }
+
 
         public Builder setTimeOut(long timeOut) {
             this.timeOut = timeOut;

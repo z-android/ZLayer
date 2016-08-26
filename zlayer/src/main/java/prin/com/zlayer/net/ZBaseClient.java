@@ -31,6 +31,7 @@ public abstract class ZBaseClient<T, ApiServiceClass> implements IClient {
                 .setCache(true)
                 .setTimeOut(8)
                 .setRetry(false)
+                .setEnableHttps(true, CertType.CER_SEUIC_SERVER, "seuic_client.bks", "", 0)
                 .build();
         return netConfig;
     }
@@ -45,7 +46,14 @@ public abstract class ZBaseClient<T, ApiServiceClass> implements IClient {
             public void onResponse(Call<T> call, Response<T> response) {
                 //封装网络状态码的解析
                 if (response.isSuccessful()) {
-                    mNetResponse.onSuccess(response.body());
+                    if (response.body() != null) {
+                        mNetResponse.onSuccess(response.body());
+                    } else {
+                        mNetResponse.onFailure(-2,"数据解析失败");
+                    }
+                } else if (response.code() == 1) {
+                    // TODO: 2016/8/26
+                    //登录过期
                 } else {
                     mNetResponse.onFailure(response.code(), response.message());
                 }

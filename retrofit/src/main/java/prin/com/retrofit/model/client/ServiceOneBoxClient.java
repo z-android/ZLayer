@@ -1,8 +1,8 @@
 package prin.com.retrofit.model.client;
 
+import prin.com.retrofit.model.service.OneBoxService;
 import prin.com.retrofit.net.ZBaseClient;
 import prin.com.retrofit.net.ZNetResponse;
-import prin.com.retrofit.model.service.OneBoxService;
 import retrofit2.Call;
 
 /**

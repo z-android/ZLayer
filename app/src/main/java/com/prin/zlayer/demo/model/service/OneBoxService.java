@@ -1,5 +1,6 @@
 package com.prin.zlayer.demo.model.service;
 
+import com.prin.zlayer.demo.model.request.LoginRequest;
 import com.prin.zlayer.demo.model.response.RspBase;
 import com.prin.zlayer.demo.model.response.RspBusMsg;
 import com.prin.zlayer.demo.model.response.RspQueryAb;
@@ -8,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 
 /**
@@ -23,4 +25,6 @@ public interface OneBoxService {
     @GET("onebox/bus/query_ab")
     Call<RspBase<RspQueryAb>> getAb(@QueryMap ConcurrentHashMap<String, Object> map);
 
+    @POST("onebox/login")
+    Call postLogin(LoginRequest request);
 }

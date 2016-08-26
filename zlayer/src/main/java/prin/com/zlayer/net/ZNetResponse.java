@@ -5,8 +5,8 @@ package prin.com.zlayer.net;
  */
 public interface ZNetResponse<T> {
 
-    void onSuccess(T response);
+    public void onSuccess(T response);
 
-    void onFailure(int errCode, String errMsg);
+    public void onFailure(int errCode, String errMsg);
 
 }

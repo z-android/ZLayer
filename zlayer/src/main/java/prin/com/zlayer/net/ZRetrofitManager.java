@@ -25,6 +25,7 @@ public class ZRetrofitManager {
         mContext = context;
     }
 
+
     /**
      * 获得client
      */
@@ -32,6 +33,15 @@ public class ZRetrofitManager {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         builder.addInterceptor(new HeaderInteraptor());
+
+        //设置是否支持https
+        if (mNetConfig.mBuilder.getEnableHttps()) {
+            HttpsUtils httpsUtils=new HttpsUtils();
+            httpsUtils.init(mContext,mNetConfig.mBuilder.cer_server,mNetConfig.mBuilder.cer_client,mNetConfig.mBuilder.bks_file,mNetConfig.mBuilder.sslType);
+            //其他配置
+            builder.sslSocketFactory(httpsUtils.getSSLParams().sSLSocketFactory, httpsUtils.getSSLParams().trustManager);
+        }
+
         //设置超时时间
         if (mNetConfig.mBuilder.getTimeOut() != -1) {
             builder.readTimeout(mNetConfig.mBuilder.getTimeOut(), TimeUnit.SECONDS);
