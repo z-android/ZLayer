@@ -6,7 +6,7 @@ import android.os.Bundle;
 /**
  * Created by prin on 2016/8/22.
  */
-public abstract class ZLayerFragment<ViewLayerType extends IBaseView, PresenterLayerType extends ZLayerPresenter<IBaseView>> extends Fragment {
+public abstract class ZLayerFragment<ViewLayerType extends IZBaseView, PresenterLayerType extends ZLayerPresenter<IZBaseView>> extends Fragment {
 
     private ViewLayerType mView;
     private PresenterLayerType mPresenter;

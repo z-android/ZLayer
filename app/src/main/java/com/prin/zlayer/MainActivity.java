@@ -1,35 +1,34 @@
 package com.prin.zlayer;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.prin.zlayer.demo.presenter.LoginPresenter;
+import com.prin.zlayer.demo.presenter.MainJuBaoPresenter;
+import com.prin.zlayer.demo.presenter.MainOneBoxPresenter;
+import com.prin.zlayer.demo.presenter.MainPresenter;
 import com.prin.zlayer.demo.viewer.IMainView;
-import com.prin.zlayer.lib.viewer.ZLayerActivity;
+import com.prin.zlayer.demo.viewer.activity.BaseActivity;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
-public class MainActivity extends ZLayerActivity<IMainView, LoginPresenter> implements IMainView {
+public class MainActivity extends BaseActivity<IMainView, MainPresenter> implements IMainView {
 
-    @Bind(R.id.textView)
-    TextView mTextView;
-    @Bind(R.id.button)
-    Button mButton;
+    private MainOneBoxPresenter mOneBoxPresenter;
+    private MainJuBaoPresenter mJuBaoPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mOneBoxPresenter = new MainOneBoxPresenter();
+        mJuBaoPresenter = new MainJuBaoPresenter();
+        extendPresenter(mOneBoxPresenter, mJuBaoPresenter);
     }
 
     @Override
-    public LoginPresenter createPresenter() {
-        return new LoginPresenter();
+    public MainPresenter createPresenter() {
+        return new MainPresenter();
     }
 
     @Override
@@ -37,14 +36,5 @@ public class MainActivity extends ZLayerActivity<IMainView, LoginPresenter> impl
         return this;
     }
 
-    @OnClick({R.id.textView, R.id.button})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.textView:
-                break;
-            case R.id.button:
-                mPresenter.getWeather();
-                break;
-        }
-    }
+
 }

@@ -1,4 +1,4 @@
-package com.prin.zlayer.demo.client;
+package com.prin.zlayer.demo.model.client;
 
 import com.prin.zlayer.lib.net.ZClient;
 import com.prin.zlayer.lib.net.ZNetCallBack;

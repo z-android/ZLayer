@@ -4,8 +4,9 @@ import java.lang.ref.SoftReference;
 
 /**
  * Created by prin on 2016/8/22.
+ * 软引用来避免内存溢出
  */
-public class ZLayerPresenter<V extends IBaseView> {
+public class ZLayerPresenter<V extends IZBaseView> {
 
     private SoftReference<V> mView;
 

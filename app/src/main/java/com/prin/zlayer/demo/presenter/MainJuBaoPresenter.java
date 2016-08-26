@@ -5,7 +5,7 @@ import com.prin.zlayer.demo.viewer.IMainView;
 import prin.com.zlayer.mvp.ZLayerPresenter;
 
 /**
- * Created by prin on 2016/8/22.
+ * Created by prin on 2016/8/26.
  */
-public class MainPresenter extends ZLayerPresenter<IMainView> {
+public class MainJuBaoPresenter extends ZLayerPresenter<IMainView> {
 }

@@ -14,7 +14,6 @@ public abstract class ServiceOneBoxClient<T> extends ZBaseClient {
 
     public ServiceOneBoxClient(ZNetResponse netResponse) {
         super(netResponse, OneBoxService.class, OneBoxService.BASE_URL);
-        mService = (OneBoxService) mApiService;
     }
 
     @Override

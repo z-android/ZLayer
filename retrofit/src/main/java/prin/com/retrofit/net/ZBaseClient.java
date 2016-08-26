@@ -39,6 +39,7 @@ public abstract class ZBaseClient<T, ApiServiceClass> implements IClient {
     @Override
     public void start() {
         mApiService = mManager.getRetrofit().create(mClazz);
+        wrapService();
         mCall = onRequest();
         mCall.enqueue(new Callback<T>() {
             @Override
@@ -63,6 +64,8 @@ public abstract class ZBaseClient<T, ApiServiceClass> implements IClient {
             }
         });
     }
+
+    protected abstract void wrapService();
 
     public abstract Call<T> onRequest();
 

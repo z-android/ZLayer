@@ -1,12 +1,12 @@
 package com.prin.zlayer.demo.presenter;
 
-import com.prin.zlayer.demo.client.LoginClient;
-import com.prin.zlayer.demo.client.RegisterClient;
+import com.prin.zlayer.demo.model.client.LoginClient;
+import com.prin.zlayer.demo.model.client.RegisterClient;
 import com.prin.zlayer.demo.model.ApiClient;
 import com.prin.zlayer.demo.model.BaseResponse;
 import com.prin.zlayer.demo.model.RspWeather;
 import com.prin.zlayer.demo.task.WeatherTask;
-import com.prin.zlayer.demo.viewer.IMainView;
+import com.prin.zlayer.demo.viewer.IZMainView;
 import com.prin.zlayer.lib.net.ZClient;
 import com.prin.zlayer.lib.net.ZNetCallBack;
 import com.prin.zlayer.lib.net.ZNetResponse;
@@ -21,7 +21,7 @@ import retrofit2.Response;
 /**
  * Created by prin on 2016/8/22.
  */
-public class LoginPresenter extends ZLayerPresenter<IMainView>{
+public class LoginPresenter extends ZLayerPresenter<IZMainView>{
     private static final String TAG = "LoginPresenter+";
 
     public void login() {
