@@ -16,9 +16,9 @@ public interface OneBoxService {
     String BASE_URL = "http://op.juhe.cn/";
 
     @GET("onebox/bus/query")
-    Call<RspOneBox> queryOneBox(@QueryMap ConcurrentHashMap<String, Object> map);
+    Call<BaseRsp<RspOneBox>> queryOneBox(@QueryMap ConcurrentHashMap<String, Object> map);
 
     @GET("onebox/bus/query_ab")
-    Call<RspQueryAb> queryAb(@QueryMap ConcurrentHashMap<String, Object> map);
+    Call<BaseRsp<RspQueryAb>> queryAb(@QueryMap ConcurrentHashMap<String, Object> map);
 
 }

@@ -2,10 +2,12 @@ package prin.com.retrofit.model;
 
 import java.util.List;
 
+import prin.com.retrofit.model.service.BaseRsp;
+
 /**
  * Created by prin on 2016/8/25.
  */
-public class RspOneBox {
+public class RspOneBox extends BaseRsp{
 
     /**
      * reason : 查询成功

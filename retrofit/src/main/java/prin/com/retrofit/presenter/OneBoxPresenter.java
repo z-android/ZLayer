@@ -1,7 +1,7 @@
 package prin.com.retrofit.presenter;
 
-import prin.com.retrofit.config.GlobalConfig;
-import prin.com.retrofit.config.ZNetResponse;
+import prin.com.retrofit.net.GlobalConfig;
+import prin.com.retrofit.net.ZNetResponse;
 import prin.com.retrofit.model.RequestParams;
 import prin.com.retrofit.model.RspOneBox;
 import prin.com.retrofit.model.RspQueryAb;
@@ -9,7 +9,6 @@ import prin.com.retrofit.model.client.OneBoxClient;
 import prin.com.retrofit.model.client.QueryAbClient;
 import prin.com.retrofit.util.ZJsonUtils;
 import prin.com.retrofit.util.ZLogUtil;
-import prin.com.retrofit.util.ZToastUtil;
 
 /**
  * Created by prin on 2016/8/25.
