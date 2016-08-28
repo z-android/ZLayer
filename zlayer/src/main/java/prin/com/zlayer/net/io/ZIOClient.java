@@ -69,9 +69,14 @@ public abstract class ZIOClient<T, ApiServiceClass> implements IClient {
             mApiService = createUploadService(mClazz, (ZUploadListener) mListener);
         }
         mCall = onRequest();
-        mCall.enqueue(new ZDownloadListener() {
+        mCall.enqueue(new Callback<T>() {
             @Override
-            public void onDownloadProgress(long byteRead, long contentLength, boolean done) {
+            public void onResponse(Call<T> call, Response<T> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<T> call, Throwable t) {
 
             }
         });
