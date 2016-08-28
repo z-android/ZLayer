@@ -27,7 +27,7 @@ Android的基础服务层，旨在将精力花在应用逻辑和交互上的开�
 支持切换各种流行图片加载库，默认装载glide
     
 ###常用工具类###
-日志，toast，时间，设备，加密，json to pjop，bitmap，数学，包，字符串，view
+日志，toast，时间，设备，加密，json to pjop，bitmap，数学，包，字符串，view，文件，动画
     
   
     

@@ -1,12 +1,13 @@
 package prin.com.zlayer.net.io;
 
-import okhttp3.OkHttpClient;
 import prin.com.zlayer.net.IClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.protobuf.ProtoConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * Created by prin on 2016/8/27.
@@ -68,14 +69,9 @@ public abstract class ZIOClient<T, ApiServiceClass> implements IClient {
             mApiService = createUploadService(mClazz, (ZUploadListener) mListener);
         }
         mCall = onRequest();
-        mCall.enqueue(new Callback<T>() {
+        mCall.enqueue(new ZDownloadListener() {
             @Override
-            public void onResponse(Call<T> call, Response<T> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<T> call, Throwable t) {
+            public void onDownloadProgress(long byteRead, long contentLength, boolean done) {
 
             }
         });
