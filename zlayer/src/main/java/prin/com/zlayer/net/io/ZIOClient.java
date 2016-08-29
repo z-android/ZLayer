@@ -19,17 +19,18 @@ public abstract class ZIOClient<T, ApiServiceClass> implements IClient {
     protected Class<ApiServiceClass> mClazz;
     private Call<T> mCall;
     protected String mBaseUrl;
-    private IOType mType;
     private ZIOListener mListener;
     private static Retrofit.Builder mBuilder;
+
+
 
     public enum IOType {
         Upload, DownLoad
     }
 
-    public ZIOClient(IOType type, ZIOListener listener, String baseUrl) {
-        mType = type;
+    public ZIOClient(ZIOListener listener, Class clazz, String baseUrl) {
         mListener = listener;
+        mClazz = clazz;
         mBaseUrl = baseUrl;
         mBuilder = getRetrofitBuilder();
 
@@ -63,11 +64,12 @@ public abstract class ZIOClient<T, ApiServiceClass> implements IClient {
 
     @Override
     public void start() {
-        if (mType == IOType.DownLoad) {
+        if (mListener instanceof  ZDownloadListener) {
             mApiService = createDownloadService(mClazz, (ZDownloadListener) mListener);
-        } else if (mType == IOType.Upload) {
+        } else if (mListener instanceof  ZUploadListener) {
             mApiService = createUploadService(mClazz, (ZUploadListener) mListener);
         }
+        wrapService();
         mCall = onRequest();
         mCall.enqueue(new Callback<T>() {
             @Override
@@ -81,6 +83,8 @@ public abstract class ZIOClient<T, ApiServiceClass> implements IClient {
             }
         });
     }
+
+    protected abstract void wrapService();
 
     @Override
     public void cancel() {
