@@ -11,13 +11,14 @@ public class UploadClient extends ServiceDemoIoClient {
 
     private ZRequestParams mParams;
 
-    public UploadClient(ZRequestParams params,ZIOListener listener) {
-        super( listener);
+    public UploadClient(ZRequestParams params, ZIOListener listener) {
+        super(listener);
         mParams = params;
     }
 
     @Override
     public Call onRequest() {
 //        return mService.upload(mParams);
+        return null;
     }
 }

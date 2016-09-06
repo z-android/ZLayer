@@ -20,7 +20,7 @@ public class MainIOClientPresenter extends ZLayerPresenter<IMainView> {
     public void upload() {
         File file = new File("filepath");
         ZRequestParams params = new ZRequestParams();
-        params.putFile("file", file, "image/jpeg");
+//        params.putFile("file", file, "image/jpeg");
         UploadClient client = new UploadClient(params, new ZUploadListener() {
             @Override
             public void onUploadProgress(long byteWritten, long contentLength, boolean done) {

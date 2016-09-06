@@ -1,6 +1,5 @@
 package prin.com.zlayer.net;
 
-import java.io.File;
 import java.util.concurrent.ConcurrentHashMap;
 
 import prin.com.zlayer.utils.ZJsonUtils;
@@ -20,11 +19,11 @@ public class ZRequestParams {
         }
     }
 
-    public void putFile(String attr, File file, String mimeType) {
-        if (attr != null && file != null) {
-        mFileParams.put(attr)
-        }
-    }
+//    public void putFile(String attr, File file, String mimeType) {
+//        if (attr != null && file != null) {
+//        mFileParams.put(attr)
+//        }
+//    }
 
     public String getParamsJsonString() {
         return mUrlParams == null ? null : ZJsonUtils.instance().objToJson(mUrlParams);
