@@ -20,8 +20,7 @@ MVP架构:实现mvp架构的基类
 ```
     
 ### 网络请求
-```
-封装retrofit实现，抽离出网络请求层
+* 封装retrofit实现，抽离出网络请求层
 * 设置统一header
 * 支持https
 * 控制缓存
@@ -31,7 +30,7 @@ MVP架构:实现mvp架构的基类
 * 实现接口联调
 * 支持基本数据类型，ConcurrentHashMap，RequestBody传递参数
 * 文件上传，下载，进度条监听
-```
+
 
 ### 图片加载
 ```
