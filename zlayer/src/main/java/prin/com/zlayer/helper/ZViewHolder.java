@@ -32,7 +32,7 @@ public class ZViewHolder extends RecyclerView.ViewHolder {
     }
 
     /**
-     * 获得GViewHolder
+     * 获得ZViewHolder
      */
     public static ZViewHolder get(Context context, View convertView,
                                   ViewGroup parent, int layoutId, int position) {
