@@ -16,7 +16,7 @@ public class ZLayer {
     public static final boolean isDebugEnable = true;
 
     public static void init(Context context) {
-        sContext = context;
+        sContext = context.getApplicationContext();
         ZToastUtil.init(context);
         ZRetrofitManager.init(context);
     }

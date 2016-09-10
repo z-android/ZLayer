@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import prin.com.zlayer.widget.CircleImageView;
+
 /**
  * Created by prin on 2016/4/13.
  * 通用的ViewHolder
