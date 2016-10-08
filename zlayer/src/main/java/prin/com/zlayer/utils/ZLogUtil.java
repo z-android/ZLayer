@@ -94,7 +94,7 @@ public class ZLogUtil {
 
     public static void w(String tag, String message) {
         if (W)
-            Log.e(tag, message);
+            Log.w(tag, message);
     }
 
     public static void w(String message) {
@@ -225,16 +225,14 @@ public class ZLogUtil {
             Class<?> clazz = trace[i].getClass();
             if (!clazz.equals(ZLogUtil.class)) {
                 String callingClass = trace[i].getClassName();
-                callingClass = callingClass.substring(callingClass
-                        .lastIndexOf('.') + 1);
-                callingClass = callingClass.substring(callingClass
-                        .lastIndexOf('$') + 1);
+                callingClass = callingClass.substring(callingClass.lastIndexOf('.') + 1);
+                callingClass = callingClass.substring(callingClass.lastIndexOf('$') + 1);
                 caller = callingClass + "." + trace[i].getMethodName();
                 caller = callingClass + ":" + trace[i].getLineNumber();
                 break;
             }
         }
-        return String.format(Locale.US, "[%d] [%s]: %s", Thread.currentThread()
-                .getId(), caller, msg);
+        return String.format(Locale.US, "[%d] [%s]: %s", Thread.currentThread().getId(),
+                caller, msg);
     }
 }
