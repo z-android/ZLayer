@@ -169,8 +169,7 @@ public class ZTimeUtil {
         String mDateTime = null;
         try {
             Calendar c = new GregorianCalendar();
-            SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(
-                    sDateFormatYMDHMS);
+            SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(sDateFormatYMDHMS);
             c.setTime(mSimpleDateFormat.parse(strDate));
             SimpleDateFormat mSimpleDateFormat2 = new SimpleDateFormat(format);
             mDateTime = mSimpleDateFormat2.format(c.getTime());

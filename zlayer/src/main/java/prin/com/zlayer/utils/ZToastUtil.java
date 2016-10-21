@@ -16,10 +16,10 @@ public class ZToastUtil {
     private static Toast sToast;
 
     public static void init(Context context) {
-        sContext = context;
+        sContext = context.getApplicationContext();
     }
 
-    public static void show(Context context, CharSequence text, int duration) {
+    public static void show(CharSequence text, int duration) {
         if (sContext != null) {
             if (sToast == null) {
                 sToast = Toast.makeText(sContext, text, duration);
@@ -30,13 +30,8 @@ public class ZToastUtil {
         }
     }
 
-    /**
-     * @param context
-     * @param text
-     */
-    public static void show(Context context, CharSequence text, int duration, int gravity) {
+    public static void show(CharSequence text, int duration, int gravity) {
         if (sContext != null) {
-
             if (sToast == null) {
                 sToast = Toast.makeText(sContext, text, duration);
                 sToast.setGravity(gravity, 0, 0);
@@ -48,11 +43,9 @@ public class ZToastUtil {
         }
     }
 
-    /**
-     * @param resId
-     */
+
     public static void show(int resId) {
-        show(sContext, sContext.getResources().getText(resId), Toast.LENGTH_SHORT);
+        show(sContext.getResources().getText(resId), Toast.LENGTH_SHORT);
     }
 
     /**
@@ -60,7 +53,7 @@ public class ZToastUtil {
      * @param duration
      */
     public static void show(int resId, int duration) {
-        show(sContext, sContext.getResources().getText(resId), duration);
+        show(sContext.getResources().getText(resId), duration);
     }
 
     /**
@@ -68,7 +61,7 @@ public class ZToastUtil {
      * @param args
      */
     public static void show(String format, Object... args) {
-        show(sContext, String.format(format, args), Toast.LENGTH_SHORT);
+        show(String.format(format, args), Toast.LENGTH_SHORT);
     }
 
     /**
@@ -77,8 +70,6 @@ public class ZToastUtil {
      * @param args
      */
     public static void show(int duration, String format, Object... args) {
-        show(sContext, String.format(format, args), duration);
+        show(String.format(format, args), duration);
     }
-
-
 }

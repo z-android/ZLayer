@@ -104,8 +104,7 @@ public class ZPackageUtil {
     public static boolean installApk(Context context, String filePath) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         File file = new File(filePath);
-        if (file == null || !file.exists() || !file.isFile()
-                || file.length() <= 0) {
+        if (!file.exists() || !file.isFile() || file.length() <= 0) {
             return false;
         }
 
@@ -136,16 +135,14 @@ public class ZPackageUtil {
     /**
      * whether packageName is system application
      */
-    public static boolean isSystemApplication(Context context,
-                                              String packageName) {
+    public static boolean isSystemApplication(Context context, String packageName) {
         PackageManager packageManager = context.getPackageManager();
         if (packageManager == null || packageName == null
                 || packageName.length() == 0) {
             return false;
         }
         try {
-            ApplicationInfo app = packageManager.getApplicationInfo(
-                    packageName, 0);
+            ApplicationInfo app = packageManager.getApplicationInfo(packageName, 0);
             return (app != null && (app.flags & ApplicationInfo.FLAG_SYSTEM) > 0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -156,8 +153,7 @@ public class ZPackageUtil {
     /**
      * 获取已安装的全部应用信息
      */
-    public static List<PackageInfo> getInsatalledPackages(
-            Context context) {
+    public static List<PackageInfo> getInsatalledPackages(Context context) {
         return context.getPackageManager().getInstalledPackages(0);
     }
 
@@ -176,8 +172,7 @@ public class ZPackageUtil {
     /**
      * 获取指定程序信息
      */
-    public static PackageInfo getPackageInfo(
-            Context context, String pkg) {
+    public static PackageInfo getPackageInfo(Context context, String pkg) {
         try {
             return context.getPackageManager().getPackageInfo(pkg, 0);
         } catch (PackageManager.NameNotFoundException e) {
@@ -189,16 +184,15 @@ public class ZPackageUtil {
     /**
      * 启动应用
      */
-    public static boolean startAppByPackageName(Context context,
-                                                String packageName) {
+    public static boolean startAppByPackageName(Context context, String packageName) {
         return startAppByPackageName(context, packageName, null);
     }
 
     /**
      * 启动应用
      */
-    public static boolean startAppByPackageName(Context context,
-                                                String packageName, Map<String, String> param) {
+    public static boolean startAppByPackageName(Context context, String packageName,
+                                                Map<String, String> param) {
         PackageInfo pi = null;
         try {
             pi = context.getPackageManager().getPackageInfo(packageName, 0);
